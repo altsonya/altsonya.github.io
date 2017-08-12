@@ -7,24 +7,23 @@ var gulp        = require('gulp'),
     pngquant    = require('imagemin-pngquant'),
     cssmin      = require('gulp-minify-css'),
     reload      = browserSync.reload,
-    deploy      = require('gulp-gh-pages');
 
 var path = {
-    build: { //Тут мы укажем куда складывать готовые после сборки файлы
+    build: {
         html: './build',
         js: 'build/js/',
         css: 'build/css/',
         img: 'build/img/',
         fonts: 'build/fonts/'
     },
-    src: { //Пути откуда брать исходники
-        html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-        js: 'src/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
+    src: {
+        html: 'src/*.html',
+        js: 'src/js/*.js',
         style: 'src/style/*.css',
-        img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+        img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
-    watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+    watch: {
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         style: 'src/style/**/*.css',
@@ -33,8 +32,6 @@ var path = {
     },
     clean: './build'
 };
-
-
 
 var config = {
     server: {
@@ -48,36 +45,36 @@ var config = {
 };
 
 gulp.task('html:build', function () {
-    gulp.src(path.src.html) //Выберем файлы по нужному пути
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
-        .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+    gulp.src(path.src.html) 
+        .pipe(rigger()) 
+        .pipe(gulp.dest(path.build.html))
+        .pipe(reload({stream: true}));
 });
 
 gulp.task('style:build', function () {
-        gulp.src(path.src.style) //Выберем наш main.scss
-            .pipe(cssmin()) //Сожмем
-            .pipe(gulp.dest(path.build.css)) //И в build
+        gulp.src(path.src.style) 
+            .pipe(cssmin())
+            .pipe(gulp.dest(path.build.css))
             .pipe(reload({stream: true}));
 });
 
 gulp.task('image:build', function () {
-        gulp.src(path.src.img) //Выберем наши картинки
-            .pipe(imagemin({ //Сожмем их
+        gulp.src(path.src.img) 
+            .pipe(imagemin({ 
                             progressive: true,
                             svgoPlugins: [{removeViewBox: false}],
                             use: [pngquant()],
                             interlaced: true
                         }))
-            .pipe(gulp.dest(path.build.img)) //И бросим в build
+            .pipe(gulp.dest(path.build.img))
             .pipe(reload({stream: true}));
 });
 
 gulp.task('js:build', function () {
-        gulp.src(path.src.js) //Найдем наш main файл
-            .pipe(rigger()) //Прогоним через rigger
-            .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
-            .pipe(reload({stream: true})); //И перезагрузим сервер
+        gulp.src(path.src.js) 
+            .pipe(rigger()) 
+            .pipe(gulp.dest(path.build.js))
+            .pipe(reload({stream: true}));
 });
 
 gulp.task('build', [
@@ -86,12 +83,6 @@ gulp.task('build', [
     'image:build',
     'js:build'
 ]);
-
-
-gulp.task('deploy', function () {
-  return gulp.src("./build/**/*")
-    .pipe(deploy());
-});
 
 gulp.task('watch', function(){
     watch([path.watch.html], function(event, cb) {
