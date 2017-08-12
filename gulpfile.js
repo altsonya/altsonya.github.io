@@ -6,7 +6,7 @@ var gulp        = require('gulp'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
     cssmin      = require('gulp-minify-css'),
-    reload      = browserSync.reload,
+    reload      = browserSync.reload
 
 var path = {
     build: {
@@ -40,9 +40,12 @@ var config = {
     notify: false,
    // tunnel: true,
     host: 'localhost',
-    port: 9000,
-    logPrefix: "Frontend_Devil"
+    port: 9000
 };
+
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
+});
 
 gulp.task('html:build', function () {
     gulp.src(path.src.html) 
