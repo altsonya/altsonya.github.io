@@ -1,11 +1,12 @@
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
     rigger      = require('gulp-rigger'), 
-    browserSync = require("browser-sync"),
+    browserSync = require('browser-sync'),
     watch       = require('gulp-watch'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
     cssmin      = require('gulp-minify-css'),
+    ghPages     = require('gulp-gh-pages'),
     reload      = browserSync.reload
 
 var path = {
@@ -43,6 +44,15 @@ var config = {
     port: 9000
 };
 
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages({branch: 'master'}));
+});
+gulp.task('cname', function () {
+    gulp.src(['./src/CNAME']) 
+        .pipe(gulp.dest(path.build.html))
+});
+
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
@@ -67,7 +77,8 @@ gulp.task('image:build', function () {
                             progressive: true,
                             svgoPlugins: [{removeViewBox: false}],
                             use: [pngquant()],
-                            interlaced: true
+                            interlaced: true,
+                            optimizationLevel: 5
                         }))
             .pipe(gulp.dest(path.build.img))
             .pipe(reload({stream: true}));
@@ -84,7 +95,8 @@ gulp.task('build', [
     'html:build',
     'style:build',
     'image:build',
-    'js:build'
+    'js:build',
+    'cname'
 ]);
 
 gulp.task('watch', function(){
