@@ -73,13 +73,12 @@ gulp.task('style:build', function () {
 
 gulp.task('image:build', function () {
         gulp.src(path.src.img) 
-            .pipe(imagemin({ 
-                            progressive: true,
-                            svgoPlugins: [{removeViewBox: false}],
-                            use: [pngquant()],
-                            interlaced: true,
-                            optimizationLevel: 5
-                        }))
+            .pipe(imagemin([ 
+                    imagemin.gifsicle({interlaced: true}),
+                    imagemin.jpegtran({progressive: true}),
+                    imagemin.optipng({optimizationLevel: 5}),
+                    imagemin.svgo({plugins: [{removeViewBox: true}]})
+                        ]))
             .pipe(gulp.dest(path.build.img))
             .pipe(reload({stream: true}));
 });
