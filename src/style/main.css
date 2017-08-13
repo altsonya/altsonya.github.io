@@ -346,20 +346,19 @@ footer h5 {
     border-radius: 5px;
 }
 
-@media screen and (max-width: 570px) {
-    .logo {  text-align: center; }
-    menu { justify-content: center; }
-    footer {justify-content: center; }
-}
-
-@media screen and (max-width: 500px) {
-    #links div { margin: 3px 3px; }
-    #links { padding: 0; }
-    main { display: block; }
-    .logo a { font-size: 6vw;}
-}
-
 @media screen and (max-width: 1023px) {
-    #links div {width: 180px;}   
-    #links .col {width: 180px;}
+    #links div { width: 180px; }
+    #links .col { width: 180px; }
+}
+
+@media screen and (max-width: 680px) {
+    .logo {  text-align: center; }
+    .logo a { font-size: 6vw;}
+    menu { justify-content: center; }
+    main { display: block; }
+    #links { padding: 0; }
+    #links div { width: 380px; margin: 3px 0; } 
+    #links .col {width: 380px;}
+    #links .col div  { padding-bottom: 6px; }
+    footer {justify-content: center; }
 }
