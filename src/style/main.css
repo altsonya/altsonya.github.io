@@ -31,15 +31,6 @@ header {
     flex: 1 auto;
 }
 
-/*  .logo a {
-    font-family: 'Raleway', sans-serif;
-    font-size: 23px;
-    color:rgb(33, 33, 33);
-    text-decoration: none;
-    letter-spacing:.15em;
-    text-shadow: 1px 0 0px rgba(0, 0, 0, 0.23);
- }  */
-
  .logo a {
     font-family: 'Poiret One', cursive;
     font-size: 25px;
@@ -48,42 +39,6 @@ header {
     letter-spacing:.15em;
     white-space: pre;
     text-shadow: 1px 0 0px rgba(0, 0, 0, 0.39);
-}
-
-/* .sub-logo {
-    position: relative;
-    top: -9px;
-    font-family: 'Gruppo', cursive;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing:.15em;
-} */
-
-.logo p {
-    text-indent: 1.5em;
-    margin: 1px;
-}
-
-.sub-logo:before,
-.sub-logo:after {
-    display: inline-block;
-    position: relative;
-    content: "";
-    min-width: 27%;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.5);
-    vertical-align: middle;
-
-}
-
-.sub-logo:before {
-    right: 0.5em;
-    margin-left: -20px;
-}
-.sub-logo:after {
-    left: 0.5em;
-    margin-right: -1px;
 }
 
 menu {
