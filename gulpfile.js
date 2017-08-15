@@ -1,12 +1,14 @@
 var gulp        = require('gulp'),
     sass        = require('gulp-sass'),
     rigger      = require('gulp-rigger'), 
+    rimraf      = require('rimraf'),
     browserSync = require('browser-sync'),
     watch       = require('gulp-watch'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
     cssmin      = require('gulp-minify-css'),
     ghPages     = require('gulp-gh-pages'),
+    autoprefixer = require('gulp-autoprefixer'),
     reload      = browserSync.reload
 
 var path = {
@@ -66,6 +68,10 @@ gulp.task('html:build', function () {
 
 gulp.task('style:build', function () {
         gulp.src(path.src.style) 
+            .pipe(autoprefixer({
+                            browsers: ['last 2 versions'],
+                            cascade: false
+                        }))
             .pipe(cssmin())
             .pipe(gulp.dest(path.build.css))
             .pipe(reload({stream: true}));
