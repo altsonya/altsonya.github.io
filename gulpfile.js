@@ -105,9 +105,18 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
-        gulp.start('html:build');
-    });
+        watch([path.watch.html], function(event, cb) {
+                    gulp.start('html:build');
+                });
+        watch([path.watch.style], function(event, cb) {
+                    gulp.start('style:build');
+                });
+        watch([path.watch.js], function(event, cb) {
+                    gulp.start('js:build');
+                });
+        watch([path.watch.img], function(event, cb) {
+                    gulp.start('image:build');
+                });
 });
 
 gulp.task('webserver', function () {
