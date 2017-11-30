@@ -11,6 +11,8 @@
          <link rel="stylesheet" href="css/main.css">
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
          <link rel="stylesheet" href="css/blueimp-gallery.css">
+         <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+         <script type='text/javascript' src='js/main.js'></script>
        </head>
        <body>
        <header>
@@ -26,13 +28,10 @@
                      <i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
          </menu>
            </header>
+     <div class="loader">
+         <div class="loader-inner"></div>
+     </div>
       <main>
-      <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
-    <script type="text/javascript">
-$(window).ready(function(){
-    $('div.hidden').fadeIn(1000).removeClass('hidden');
-                });
-    </script>
         <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
           <div class="slides"></div>
           <h3 class="title"></h3>
@@ -43,24 +42,24 @@ $(window).ready(function(){
           <ol class="indicator"></ol>
         </div>
         <div id="links">
-          <div class="hidden"><a href="img/img_008.jpg"><img src="img/img_008.jpg" alt=""></a></div>
-           <div class="hidden"><a href="img/img_012.jpg"><img src="img/img_012.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_013.jpg"><img src="img/img_013.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_009.jpg"><img src="img/img_009.jpg" alt=""></a></div>
+          <div><a href="img/img_008.jpg"><img src="img/img_008.jpg" alt=""></a></div>
+           <div><a href="img/img_012.jpg"><img src="img/img_012.jpg" alt=""></a></div>
+            <div><a href="img/img_013.jpg"><img src="img/img_013.jpg" alt=""></a></div>
+            <div><a href="img/img_009.jpg"><img src="img/img_009.jpg" alt=""></a></div>
                 <div class="col">
-                    <div class="hidden"><a href="img/img_010_big.jpg"><img src="img/img_010.jpg" alt=""></a></div>
-                    <div class="hidden"><a href="img/img_011_big.jpg"><img src="img/img_011.jpg" alt=""></a></div>
+                    <div><a href="img/img_010_big.jpg"><img src="img/img_010.jpg" alt=""></a></div>
+                    <div><a href="img/img_011_big.jpg"><img src="img/img_011.jpg" alt=""></a></div>
                 </div>
-            <div class="hidden"><a href="img/img_003.jpg"><img src="img/img_003.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_002.jpg"><img src="img/img_002.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_001.jpg"><img src="img/img_001.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_006.jpg"><img src="img/img_006.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_007.jpg"><img src="img/img_007.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_004.jpg"><img src="img/img_004.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_005.jpg"><img src="img/img_005.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_015.jpg"><img src="img/img_015.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_016.jpg"><img src="img/img_016.jpg" alt=""></a></div>
-            <div class="hidden"><a href="img/img_017.jpg"><img src="img/img_017.jpg" alt=""></a></div>
+            <div><a href="img/img_003.jpg"><img src="img/img_003.jpg" alt=""></a></div>
+            <div><a href="img/img_002.jpg"><img src="img/img_002.jpg" alt=""></a></div>
+            <div><a href="img/img_001.jpg"><img src="img/img_001.jpg" alt=""></a></div>
+            <div><a href="img/img_006.jpg"><img src="img/img_006.jpg" alt=""></a></div>
+            <div><a href="img/img_007.jpg"><img src="img/img_007.jpg" alt=""></a></div>
+            <div><a href="img/img_004.jpg"><img src="img/img_004.jpg" alt=""></a></div>
+            <div><a href="img/img_005.jpg"><img src="img/img_005.jpg" alt=""></a></div>
+            <div><a href="img/img_015.jpg"><img src="img/img_015.jpg" alt=""></a></div>
+            <div><a href="img/img_016.jpg"><img src="img/img_016.jpg" alt=""></a></div>
+            <div><a href="img/img_017.jpg"><img src="img/img_017.jpg" alt=""></a></div>
             
         <script>
         document.getElementById('links').onclick = function (event) {
