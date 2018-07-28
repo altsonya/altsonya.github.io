@@ -110,7 +110,7 @@ menu a:focus {
     color: #000;
 }
 
-menu a::after {
+.menu_links a::after {
 	top: 100%;
 	left: 0;
 	width: 100%;
@@ -127,8 +127,8 @@ menu a::after {
 	transform: translateY(10px);
 }
 
-menu a:hover::after,
-menu a:focus::after {
+.menu_links a:hover::after,
+.menu_links a:focus::after {
 	opacity: 1;
 	-webkit-transform: translateY(4px);
 	-moz-transform: translateY(4px);
@@ -197,7 +197,7 @@ main {
 
 footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-wrap: wrap;
     padding: 0 20px;
 }
@@ -222,7 +222,8 @@ footer a {
 }
 
 footer h5 {
-    font-size: 12px;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.71); 
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 500;
@@ -245,6 +246,10 @@ footer h5 {
     padding-top: 30px;
     text-align: justify;
     padding-bottom: 50px;
+}
+
+.mailto {
+    color: rgba(0, 0, 0, 0.71); 
 }
 
 .alert-true {
